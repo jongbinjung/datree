@@ -30,8 +30,8 @@ An uncertainty node can have multiple children.
 \examples{
 # Generate a list of some outcome nodes to be children
 children <- list(
-  o_nodes(v = -10, name = "Rain"),
-  o_nodes(v = 10, name = "Sunny"),
+  o_node(v = -10, name = "Rain"),
+  o_node(v = 10, name = "Sunny")
 )
 u <- u_node(children = children, probs = c(.2, .8), name = "Weather")
 str(u)

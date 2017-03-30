@@ -23,8 +23,8 @@ children as its value. A decision node can have multiple children.
 \examples{
 # Generate a list of some outcome nodes to be children
 children <- list(
-  o_nodes(v = -10, name = "Rain"),
-  o_nodes(v = 10, name = "Sunny"),
+  o_node(v = -10, name = "Rain"),
+  o_node(v = 10, name = "Sunny")
 )
 d <- d_node(children = children, name = "Weather")
 str(u)

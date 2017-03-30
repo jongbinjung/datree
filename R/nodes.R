@@ -38,8 +38,8 @@ o_node <- function(v, name = "Outcome") {
 #' @examples
 #' # Generate a list of some outcome nodes to be children
 #' children <- list(
-#'   o_nodes(v = -10, name = "Rain"),
-#'   o_nodes(v = 10, name = "Sunny"),
+#'   o_node(v = -10, name = "Rain"),
+#'   o_node(v = 10, name = "Sunny")
 #' )
 #' u <- u_node(children = children, probs = c(.2, .8), name = "Weather")
 #' str(u)
@@ -97,8 +97,8 @@ u_node <- function(children, probs, name = "Uncertainty") {
 #' @examples
 #' # Generate a list of some outcome nodes to be children
 #' children <- list(
-#'   o_nodes(v = -10, name = "Rain"),
-#'   o_nodes(v = 10, name = "Sunny"),
+#'   o_node(v = -10, name = "Rain"),
+#'   o_node(v = 10, name = "Sunny")
 #' )
 #' d <- d_node(children = children, name = "Weather")
 #' str(u)
