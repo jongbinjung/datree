@@ -1,4 +1,4 @@
-# multidplyr
+# datree
 
 [![Build Status](https://travis-ci.org/jongbinjung/datree.svg?branch=master)](https://travis-ci.org/jongbinjung/datree)
 
