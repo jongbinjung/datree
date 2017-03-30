@@ -1,0 +1,19 @@
+Package: datree
+Type: Package
+Title: Create and Manage Decision Trees for Decision Analysis
+Version: 0.1.0
+Authors@R: person("Jongbin", "Jung", email = "jungjongbin86@gmail.com",
+  role = c("aut", "cre"))
+Maintainer: Jongbin Jung <jungjongbin86@gmail.com>
+Description: Implementation of simple decision trees to be used in a decision
+    analysis context. Not to be confused with statistically learned decision
+    trees!
+License: GPL-3 | file LICENSE
+Depends:
+    R (>= 3.2.0)
+Imports:
+    purrr
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Suggests: testthat
