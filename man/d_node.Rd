@@ -27,7 +27,7 @@ children <- list(
   o_node(v = 10, name = "Sunny")
 )
 d <- d_node(children = children, name = "Weather")
-str(u)
+str(d)
 }
 \seealso{
 Other node generating functions: \code{\link{o_node}},
