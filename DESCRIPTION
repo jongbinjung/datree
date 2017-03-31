@@ -13,6 +13,8 @@ Depends:
     R (>= 3.2.0)
 Imports:
     purrr
+Suggests:
+    covr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
