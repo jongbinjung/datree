@@ -101,7 +101,7 @@ u_node <- function(children, probs, name = "Uncertainty") {
 #'   o_node(v = 10, name = "Sunny")
 #' )
 #' d <- d_node(children = children, name = "Weather")
-#' str(u)
+#' str(d)
 #' @export
 d_node <- function(children, name = "Decision") {
   n_alternatives <- length(children)
