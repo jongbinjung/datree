@@ -68,7 +68,7 @@ u_node <- function(children, probs, name = "Uncertainty") {
   }
 
   if (any(probs == 0)) {
-    warning(sprintf("Zero probabilities for u_node %s", name))
+    # message(sprintf("Zero probabilities for u_node %s", name))
   }
 
   values <- purrr::map_dbl(children, "value")
@@ -119,6 +119,6 @@ d_node <- function(children, name = "Decision") {
     name = name,
     type = "decision",
     children = children,
-    decision = decision
+    decision = decision$name
     )
 }
