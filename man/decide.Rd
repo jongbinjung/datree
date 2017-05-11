@@ -25,8 +25,8 @@ a <- o_node(v = ~ .data$x + y, "Add")
 b <- o_node(v = ~ .data$x * y, "Multiply")
 d <- d_node(children = list(a, b))
 y <- 10
-decide(v, data = list(x = 10))
-decide(v, data = list(x = 1))
+decide(d, data = list(x = 10))
+decide(d, data = list(x = 1))
 }
 \seealso{
 Other node processing functions: \code{\link{evaluate}}

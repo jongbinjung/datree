@@ -13,7 +13,7 @@
 #' @export
 o_node <- function(v, name = "Outcome") {
   if (!lazyeval::is_formula(v)) {
-    v = as.formula(paste("~", as.character(v)))
+    v = stats::as.formula(paste("~", as.character(v)))
   }
   list(
     name = name,
@@ -85,7 +85,7 @@ u_node <- function(children, probs, name = "Uncertainty") {
   #   probs <- c(probs, rep(remainder / n_fills, n_fills))
   }
 
-  fv <- as.formula(paste("~", paste("sum(c(", c_values, ")",
+  fv <- stats::as.formula(paste("~", paste("sum(c(", c_values, ")",
                                           "*",
                                           "c(", c_probs, "))")
                                     ))
@@ -128,7 +128,7 @@ d_node <- function(children, name = "Decision") {
 
   # values <- purrr::map_dbl(children, "value")
   c_values <- purrr::map_chr(children, ~ lazyeval::f_text(.x$value))
-  fv <- as.formula(paste("~", paste("max(", paste(c_values,
+  fv <- stats::as.formula(paste("~", paste("max(", paste(c_values,
                                     collapse = ","), ")")))
   list(
     name = name,
