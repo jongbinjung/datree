@@ -13,6 +13,14 @@ children <- list(
   o_node(~ z, "C")
   )
 
+num_prob <- list(.1, .4, .5)
+
+u <- u_node(children, num_prob)
+
+test_that("u_node works with non-formula probabilities", {
+  expect_equal(u$value, ~ sum(c(x, y, z) * c(.1, .4, .5)))
+})
+
 full_prob <- list(~ a, ~ b, ~ 1 - a - b)
 
 u <- u_node(children, full_prob)

@@ -69,7 +69,7 @@ u_node <- function(children, probs, name = "Uncertainty") {
   #   n_fills <- n_possibilities - length(probs)
   #   probs <- c(probs, rep(remainder / n_fills, n_fills))
   }
-  #
+
   # if (any(probs == 0)) {
   #   # message(sprintf("Zero probabilities for u_node %s", name))
   # }
@@ -77,13 +77,14 @@ u_node <- function(children, probs, name = "Uncertainty") {
   c_values <- paste(purrr::map_chr(children, ~ lazyeval::f_text(.x$value)),
                     collapse = ", ")
 
-  if (!lazyeval::is_formula(probs[[1]])) {
-    # TODO: figure out a way to deal with non-formula probabilities.
-    # For now, just stop
-    stop(sprintf("Cannot deal with non-formula probabilities: u_node %s", name))
-  }
-  c_probs <- paste(purrr::map_chr(probs, ~ lazyeval::f_text(.x)),
-                   collapse = ", ")
+  c_probs <- paste(purrr::map_chr(probs, function(x) {
+    if (lazyeval::is_formula(x)) {
+      lazyeval::f_text(x)
+    } else {
+      as.character(x)
+    }
+    }), collapse = ", ")
+
   fv <- as.formula(paste("~", paste("sum(c(", c_values, ")",
                                           "*",
                                           "c(", c_probs, "))")
