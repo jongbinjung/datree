@@ -56,19 +56,6 @@ u_node <- function(children, probs, name = "Uncertainty") {
   # if (sum(probs) > 1) {
   #   stop(sprintf("Probabilities for u_node %s sum to greater than 1", name))
   # }
-  #
-  n_possibilities <- length(children)
-
-  if (length(probs) > n_possibilities) {
-    stop(sprintf("Too many probabilities for u_node %s", name))
-  }
-
-  if (length(probs) < n_possibilities) {
-    stop(sprintf("Not enough probabilities for u_node %s", name))
-  #   remainder <- 1 - sum(probs)
-  #   n_fills <- n_possibilities - length(probs)
-  #   probs <- c(probs, rep(remainder / n_fills, n_fills))
-  }
 
   # if (any(probs == 0)) {
   #   # message(sprintf("Zero probabilities for u_node %s", name))
@@ -84,6 +71,19 @@ u_node <- function(children, probs, name = "Uncertainty") {
       as.character(x)
     }
     }), collapse = ", ")
+
+  n_possibilities <- length(c_values)
+
+  if (length(c_probs) > n_possibilities) {
+    stop(sprintf("Too many probabilities for u_node %s", name))
+  }
+
+  if (length(c_probs) < n_possibilities) {
+    stop(sprintf("Not enough probabilities for u_node %s", name))
+  #   remainder <- 1 - sum(probs)
+  #   n_fills <- n_possibilities - length(probs)
+  #   probs <- c(probs, rep(remainder / n_fills, n_fills))
+  }
 
   fv <- as.formula(paste("~", paste("sum(c(", c_values, ")",
                                           "*",

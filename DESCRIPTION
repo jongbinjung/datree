@@ -15,6 +15,7 @@ Imports:
     purrr,
     tibble
 Suggests: 
+    tidyverse,
     testthat,
     knitr,
     rmarkdown
