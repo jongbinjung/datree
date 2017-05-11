@@ -7,25 +7,24 @@
 u_node(children, probs, name = "Uncertainty")
 }
 \arguments{
-\item{children}{List. A list of nodes that are the
-possibilities of this uncertainty.}
+\item{children}{List. A list of nodes that are the possibilities of this
+uncertainty.}
 
-\item{probs}{Numeric vector. The probabilities associated to each of the
-children. Should have the equal or less elements than \code{children}.
-If the number of elements is equal to \code{children}, they should sum to
-one. If the number of elements is less than that of \code{children}, the
-remaining values are filled out equally, such that the total probability
-sums to one.}
+\item{probs}{List. The probabilities associated to each of the children as a
+list of functions. Should have the same number of elements as
+\code{children}. If the number of elements is equal to \code{children},
+they should sum to one.
+Otherwise, the u_node with silently do very bad things ...}
 
 \item{name}{Character. The name of this outcome}
 }
 \value{
-A node (\code{list}) that has a \code{value} and \code{name}.
+A node (\code{list}) that has a \code{value} function and \code{name}.
 }
 \description{
 \code{u_node} returns an uncertainty node that takes the weighted average of
-it's children (e-value) as the value.
-An uncertainty node can have multiple children.
+it's children (e-value) as the value. An uncertainty node can have multiple
+children.
 }
 \examples{
 # Generate a list of some outcome nodes to be children
@@ -33,7 +32,9 @@ children <- list(
   o_node(v = -10, name = "Rain"),
   o_node(v = 10, name = "Sunny")
 )
-u <- u_node(children = children, probs = c(.2, .8), name = "Weather")
+x <- runif(1)
+u <- u_node(children = children, probs = list(~ x, ~ 1 - x),
+            name = "Weather")
 str(u)
 }
 \seealso{
